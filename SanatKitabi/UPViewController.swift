@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class UPViewController: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
@@ -14,9 +15,23 @@ class UPViewController: UIViewController , UIImagePickerControllerDelegate, UINa
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var artistText: UITextField!
     @IBOutlet weak var yearText: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
+    var choosenPainting = ""
+    var chosenPaintingId  : UUID?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+     
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         // görsel tıklmayı açma
         selectImage.isUserInteractionEnabled = true
@@ -48,7 +63,35 @@ class UPViewController: UIViewController , UIImagePickerControllerDelegate, UINa
     @objc func keyboarfOff(){
         view.endEditing(true)
     }
-    @IBAction func save(_ sender: Any) {
+    @IBAction func save(_ sender: Any) { // veriyi kaydetme
+        
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        // Entitye ulama
+        let newPaintings = NSEntityDescription.insertNewObject(forEntityName: "Paintings", into: context)
+        
+        newPaintings.setValue(nameText.text, forKey: "name")
+        newPaintings.setValue(artistText.text, forKey: "artist")
+        
+        if let year = Int(yearText.text!){
+            newPaintings.setValue(year, forKey: "year")
+        }
+        
+        newPaintings.setValue(UUID(), forKey: "id")
+        
+        let data = selectImage.image!.jpegData(compressionQuality: 0.5)
+        newPaintings.setValue(data, forKey: "image")
+        
+        do{
+            try context.save()
+            print("success")
+        }catch{
+            print("error")
+        }
+        
+        
         self.navigationController?.popViewController(animated: true)
     }
     

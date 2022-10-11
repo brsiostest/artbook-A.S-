@@ -24,10 +24,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bVg-Ge-26S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6K4-yv-VYS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bVg-Ge-26S" secondAttribute="bottom" id="HeI-0B-Dki"/>
-                            <constraint firstItem="bVg-Ge-26S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Y77-tI-bvm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bVg-Ge-26S" secondAttribute="trailing" id="qPR-Br-TCc"/>
+                            <constraint firstItem="bVg-Ge-26S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4JX-SS-vWh"/>
+                            <constraint firstItem="bVg-Ge-26S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4oL-o1-lZb"/>
+                            <constraint firstItem="bVg-Ge-26S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Dj-XN-Ylv"/>
+                            <constraint firstItem="bVg-Ge-26S" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NX4-JZ-t8O"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pWD-bc-XTc"/>
@@ -51,7 +51,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select" translatesAutoresizingMaskIntoConstraints="NO" id="dgB-JC-7Ym">
                                 <rect key="frame" x="16" y="104" width="358" height="207"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="name:" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufa-IK-Xmr">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufa-IK-Xmr">
                                 <rect key="frame" x="16" y="403" width="358" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="YmV-UF-UBb"/>
@@ -59,7 +59,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="artist" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lEP-EE-JV6">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="artist:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lEP-EE-JV6">
                                 <rect key="frame" x="16" y="463" width="358" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="3Kz-QS-NKm"/>
@@ -78,7 +78,7 @@
                                     <action selector="save:" destination="P5t-ft-xYZ" eventType="touchUpInside" id="91x-9j-5gY"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="year:" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="euW-fb-l1a">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="year:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="euW-fb-l1a">
                                 <rect key="frame" x="16" y="522" width="358" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="heO-VH-gwU"/>
@@ -112,6 +112,7 @@
                     <connections>
                         <outlet property="artistText" destination="lEP-EE-JV6" id="5FI-49-D0y"/>
                         <outlet property="nameText" destination="ufa-IK-Xmr" id="7WQ-Ne-Ti2"/>
+                        <outlet property="saveButton" destination="BbG-6Y-Usd" id="7n0-RQ-gmt"/>
                         <outlet property="selectImage" destination="dgB-JC-7Ym" id="eHx-KH-B1k"/>
                         <outlet property="yearText" destination="euW-fb-l1a" id="vlL-k0-Mr1"/>
                     </connections>
