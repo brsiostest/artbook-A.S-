@@ -9,10 +9,16 @@ import UIKit
 
 class UPViewController: UIViewController {
 
+    
+    @IBOutlet weak var selectImage: UIImageView!
+    @IBOutlet weak var nameText: UITextField!
+    @IBOutlet weak var artistText: UITextField!
+    @IBOutlet weak var yearText: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
 
     
