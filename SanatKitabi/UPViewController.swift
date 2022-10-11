@@ -17,12 +17,16 @@ class UPViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(keyboarfOff))
+        view.addGestureRecognizer(gestureRecognizer)
     }
 
     
-   
+   // keyboard off
+    @objc func keyboarfOff(){
+        view.endEditing(true)
+    }
     @IBAction func save(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
