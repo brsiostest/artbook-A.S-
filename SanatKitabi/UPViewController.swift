@@ -18,12 +18,55 @@ class UPViewController: UIViewController , UIImagePickerControllerDelegate, UINa
     @IBOutlet weak var saveButton: UIButton!
     var choosenPainting = ""
     var chosenPaintingId  : UUID?
-    
+     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        saveButton.isEnabled = false
      
+        if choosenPainting != "" {
+            
+            // veriyi aktarma
+            
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            let context = appDelegate?.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Paintings")
+            let idString = chosenPaintingId?.uuidString
+            
+            fetchRequest.predicate = NSPredicate(format: "id = %@", idString!) // ???????
+            fetchRequest.returnsObjectsAsFaults = false
+            do{
+                let results = try context!.fetch(fetchRequest)
+                if results.count > 0{
+                    
+                    for result in results as! [NSManagedObject]{
+                        if let name = result.value(forKey: "name") as? String{
+                            nameText.text = name}
+                        if let artist = result.value(forKey: "artist") as? String{
+                            artistText.text = artist
+                        }
+                        if let year = result.value(forKey: "year") as? String{
+                            yearText.text = year
+                        }
+                        
+                        if let imageData = result.value(forKey: "image") as? Data {
+                            let image = UIImage(data:imageData)
+                            selectImage.image = image
+                        }
+                        
+                    }
+                    
         
+                    
+                }
+                
+            }catch{
+                print("error")
+            }
+                
+            
+            
+        }
         
         
         
@@ -49,7 +92,9 @@ class UPViewController: UIViewController , UIImagePickerControllerDelegate, UINa
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
         present(picker,animated: true)
+        saveButton.isEnabled = true
         
     }
     
